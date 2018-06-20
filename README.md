@@ -11,4 +11,5 @@
 
 <p>The datatype is set to an int32. (standard) 
 
-<p>The last training provided follow information: INFO:tensorflow:loss = 0.12128864, step = 7701 (18.603 sec)</p>
+<p>The last training provided follow information: INFO:tensorflow:loss = 0.12128864, step = 7701 (18.603 sec)
+INFO:tensorflow:loss = 0.18814294, step = 8960 (16.587 sec)</p>
