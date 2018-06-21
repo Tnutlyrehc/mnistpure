@@ -13,3 +13,6 @@
 
 <p>The last training provided follow information: INFO:tensorflow:loss = 0.12128864, step = 7701 (18.603 sec)
 INFO:tensorflow:loss = 0.18814294, step = 8960 (16.587 sec)</p>
+
+<p>During training, it's training on 100 examples on each step, which would translate to -> 896.000 examples that have been trained on. The model is set to train 20.000 times.
+ <p> On step 22.629 I got the following: INFO:tensorflow:loss = 0.095737554, step = 22629 (19.141 sec) 
