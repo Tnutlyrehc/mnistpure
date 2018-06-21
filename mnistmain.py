@@ -19,7 +19,7 @@ def cnn_model_fn(features, labels, mode):
   # Convolutional layer 1
   # 5x5 filter w. ReLu activation.
   # Input tensorshape = batchsize, 28x28 CC=1
-  # Output tensorshape = batchsize, 28x28 CC=21
+  # Output tensorshape = batchsize, 28x28 CC=1
   #ReLu activation used
   conv1 = tf.layers.conv2d(
       inputs=input_layer,
@@ -38,6 +38,7 @@ def cnn_model_fn(features, labels, mode):
   # Input Tensor Shape: [batch_size, 14, 14, 32]
   # Output Tensor Shape: [batch_size, 14, 14, 64]
   # computing features x 64 - using 5x5 --> padded to preserve width * height
+  # 64 5x5 filters with ReLU activation
   conv2 = tf.layers.conv2d(
       inputs=pool1,
       filters=64,
@@ -82,7 +83,7 @@ def cnn_model_fn(features, labels, mode):
 
   # Training - TRAIN mode
   if mode == tf.estimator.ModeKeys.TRAIN:
-    optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001)
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001)#Gradient Descent -> Stochastic gradient descent as optimizer algorithm.
     train_op = optimizer.minimize(
         loss=loss,
         global_step=tf.train.get_global_step())
@@ -118,7 +119,7 @@ def main(unused_argv):
   train_input_fn = tf.estimator.inputs.numpy_input_fn(
       x={"x": train_data},
       y=train_labels,
-      batch_size=100,
+      batch_size=100, #100 examples on each step of training
       num_epochs=None,
       shuffle=True)
   mnist_classifier.train(
